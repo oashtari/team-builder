@@ -10,17 +10,17 @@ function App() {
 
   const [members, setMembers] = useState([
     {
-      first: 'firstName',
-      last: 'lastName',
-      joined: 'at the start'
+      name: 'Member Name',
+      email: 'Example email: name@domain.com',
+      role: 'code crusher'
     }
   ]);
 
   const addMember = member => {
     const newMember = {
-      firstName: member.firstName,
-      lastName: member.lastName,
-      joined: Date.now()
+      name: member.name,
+      email: member.email,
+      role: member.role
     }
     const newTeamList = [...members, newMember];
 

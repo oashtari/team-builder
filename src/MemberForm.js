@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 const MemberForm = ({ addMember }) => {
 
     const [member, setMember] = useState({
-        firstName: '',
-        lastName: ''
+        name: '',
+        email: '',
+        role: ''
     });
 
     const newAddition = event => {
@@ -22,26 +23,32 @@ const MemberForm = ({ addMember }) => {
     return (
         <form onSubmit={submitName}>
 
-            <label htmlFor='firstName'>First Name</label>
+            <label htmlFor='name'>Name:</label>
 
             <input
-                id='firstName'
+                id='name'
                 type='text'
-                name='firstName'
-                placeholder="Enter First Name"
+                name='name'
+                placeholder="Enter Your Name"
                 onChange={newAddition}
-                value={member.firstName}
+                value={member.name}
             />
-            <label htmlFor='lastName'>Last Name</label>
+            <label htmlFor='email'>Email:</label>
             <input
-                id='lastName'
-                type='text'
-                name='lastName'
-                placeholder="Enter Last Name"
+                id='email'
+                type='email'
+                name='email'
+                placeholder="Enter Your Email...PLEASE"
                 onChange={newAddition}
-                value={member.lastName}
+                value={member.email}
             />
 
+            <label >Role:</label>
+            <select name='role' value={member.role} onChange={newAddition}>
+                <option value="code crusher">Code Crusher</option>
+                <option value="pixel pusher">Pixel Pusher</option>
+                <option value="idea person">IDEA PERSON</option>
+            </select>
             <button type='submit'>Add Member</button>
         </form>
     )
