@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+// import logo from './logo.svg';
 import './App.css';
+// import { memberExpression } from '@babel/types';
+import Members from './Members';
+import MemberForm from './MemberForm'
+
 
 function App() {
+
+  const [members, setMembers] = useState([
+    {
+      first: 'firstName',
+      last: 'lastName',
+      joined: 'at the start'
+    }
+  ]);
+
+  const addMember = member => {
+    const newMember = {
+      firstName: member.firstName,
+      lastName: member.lastName,
+      joined: Date.now()
+    }
+    const newTeamList = [...members, newMember];
+
+    setMembers(newTeamList);
+  }
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2 className="team-members">Our Team </h2>
+      <MemberForm addMember={addMember} />
+      <Members members={members} />
+
     </div>
   );
 }
 
 export default App;
+
