@@ -15,7 +15,7 @@ const MemberForm = ({ addMember }) => {
     const submitName = event => {
         event.preventDefault();
         addMember(member);
-        setMember({ firstName: '', lastName: '' })
+        setMember({ name: '', email: '' })
     };
 
     console.log('member state', member);
